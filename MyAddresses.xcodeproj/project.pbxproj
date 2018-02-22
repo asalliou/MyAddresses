@@ -13,6 +13,7 @@
 		447D3632203DA42F00E82B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447D3631203DA42F00E82B83 /* Assets.xcassets */; };
 		447D3635203DA42F00E82B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447D3633203DA42F00E82B83 /* LaunchScreen.storyboard */; };
 		447D3640203DA43000E82B83 /* MyAddressesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D363F203DA43000E82B83 /* MyAddressesTests.swift */; };
+		A7D70A8FF46F4561AADB2330 /* libPods-MyAddresses.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 001F9B3994FE42070D191A8D /* libPods-MyAddresses.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -26,6 +27,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001F9B3994FE42070D191A8D /* libPods-MyAddresses.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyAddresses.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		44640A06203EF26A0062181A /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
 		447D3627203DA42F00E82B83 /* MyAddresses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAddresses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447D362A203DA42F00E82B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		447D362C203DA42F00E82B83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -36,6 +39,8 @@
 		447D363B203DA43000E82B83 /* MyAddressesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAddressesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		447D363F203DA43000E82B83 /* MyAddressesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressesTests.swift; sourceTree = "<group>"; };
 		447D3641203DA43000E82B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A21AD5ED032EDCA3E4EFE2F8 /* Pods-MyAddresses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAddresses.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses.release.xcconfig"; sourceTree = "<group>"; };
+		FA550A20126BC71C48FB0AFA /* Pods-MyAddresses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAddresses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7D70A8FF46F4561AADB2330 /* libPods-MyAddresses.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,12 +62,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44640A05203EF2690062181A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44640A06203EF26A0062181A /* Mapbox.framework */,
+				001F9B3994FE42070D191A8D /* libPods-MyAddresses.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		447D361E203DA42F00E82B83 = {
 			isa = PBXGroup;
 			children = (
 				447D3629203DA42F00E82B83 /* MyAddresses */,
 				447D363E203DA43000E82B83 /* MyAddressesTests */,
 				447D3628203DA42F00E82B83 /* Products */,
+				44640A05203EF2690062181A /* Frameworks */,
+				CEAB44ADEBE9AE5DED8F3A49 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -96,6 +113,15 @@
 			path = MyAddressesTests;
 			sourceTree = "<group>";
 		};
+		CEAB44ADEBE9AE5DED8F3A49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FA550A20126BC71C48FB0AFA /* Pods-MyAddresses.debug.xcconfig */,
+				A21AD5ED032EDCA3E4EFE2F8 /* Pods-MyAddresses.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,9 +129,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 447D3644203DA43000E82B83 /* Build configuration list for PBXNativeTarget "MyAddresses" */;
 			buildPhases = (
+				5B7E8B3D7F97C344836704EA /* [CP] Check Pods Manifest.lock */,
 				447D3623203DA42F00E82B83 /* Sources */,
 				447D3624203DA42F00E82B83 /* Frameworks */,
 				447D3625203DA42F00E82B83 /* Resources */,
+				44640A0A203EF5210062181A /* ShellScript */,
+				9AF3AAFF61FF6BA0EB60AAFD /* [CP] Embed Pods Frameworks */,
+				86EC00D3819BD7A80A6BA1D0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +223,75 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		44640A0A203EF5210062181A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "token_file=.mapbox\ntoken=\"$(cat $token_file)\"\nif [ \"$token\" ]; then\nplutil -replace MGLMapboxAccessToken -string $token \"$TARGET_BUILD_DIR/$INFOPLIST_PATH\"\nelse\necho 'error: Missing Mapbox access token'\nopen 'https://www.mapbox.com/studio/account/tokens/'\necho \"error: Get an access token from <https://www.mapbox.com/studio/account/tokens/>, then create a new file at $token_file that contains the access token.\"\nexit 1\nfi";
+		};
+		5B7E8B3D7F97C344836704EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyAddresses-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86EC00D3819BD7A80A6BA1D0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9AF3AAFF61FF6BA0EB60AAFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses-frameworks.sh",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
+				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		447D3623203DA42F00E82B83 /* Sources */ = {
@@ -351,9 +450,14 @@
 		};
 		447D3645203DA43000E82B83 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA550A20126BC71C48FB0AFA /* Pods-MyAddresses.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MyAddresses/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.asalliou.MyAddresses;
@@ -365,9 +469,14 @@
 		};
 		447D3646203DA43000E82B83 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A21AD5ED032EDCA3E4EFE2F8 /* Pods-MyAddresses.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = MyAddresses/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.asalliou.MyAddresses;
