@@ -13,7 +13,7 @@
 		447D3632203DA42F00E82B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447D3631203DA42F00E82B83 /* Assets.xcassets */; };
 		447D3635203DA42F00E82B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447D3633203DA42F00E82B83 /* LaunchScreen.storyboard */; };
 		447D3640203DA43000E82B83 /* MyAddressesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D363F203DA43000E82B83 /* MyAddressesTests.swift */; };
-		A7D70A8FF46F4561AADB2330 /* libPods-MyAddresses.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 001F9B3994FE42070D191A8D /* libPods-MyAddresses.a */; };
+		7232FF39429D5F8E18CC4EED /* Pods_MyAddresses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62358EB994EE8BC615FC621B /* Pods_MyAddresses.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,7 +27,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		001F9B3994FE42070D191A8D /* libPods-MyAddresses.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyAddresses.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		44640A06203EF26A0062181A /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
 		447D3627203DA42F00E82B83 /* MyAddresses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAddresses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447D362A203DA42F00E82B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -39,6 +38,7 @@
 		447D363B203DA43000E82B83 /* MyAddressesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAddressesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		447D363F203DA43000E82B83 /* MyAddressesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressesTests.swift; sourceTree = "<group>"; };
 		447D3641203DA43000E82B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		62358EB994EE8BC615FC621B /* Pods_MyAddresses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyAddresses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21AD5ED032EDCA3E4EFE2F8 /* Pods-MyAddresses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAddresses.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses.release.xcconfig"; sourceTree = "<group>"; };
 		FA550A20126BC71C48FB0AFA /* Pods-MyAddresses.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAddresses.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A7D70A8FF46F4561AADB2330 /* libPods-MyAddresses.a in Frameworks */,
+				7232FF39429D5F8E18CC4EED /* Pods_MyAddresses.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,7 +66,7 @@
 			isa = PBXGroup;
 			children = (
 				44640A06203EF26A0062181A /* Mapbox.framework */,
-				001F9B3994FE42070D191A8D /* libPods-MyAddresses.a */,
+				62358EB994EE8BC615FC621B /* Pods_MyAddresses.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -280,11 +280,13 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -1,0 +1,6 @@
+framework module Pods_MyAddresses {
+  umbrella header "Pods-MyAddresses-umbrella.h"
+
+  export *
+  module * { export * }
+}
