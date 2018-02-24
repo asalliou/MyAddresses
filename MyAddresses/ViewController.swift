@@ -8,22 +8,28 @@
 
 import UIKit
 import Mapbox
+import ReSwift
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, StoreSubscriber {
+    
+    var mapView : MGLMapView?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let mapView = MGLMapView(frame: self.view.bounds)
-        mapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.addSubview(mapView)
+        mapView = MGLMapView(frame: self.view.bounds)
+        mapView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        self.view.addSubview(mapView!)
+        
+        mainStore.subscribe(self)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func newState(state: AppState) {
+        if mapView != nil {
+            mapView!.centerCoordinate = state.mapCenterCoordinate
+            mapView!.zoomLevel = 15
+        }
+        return
     }
-
-
 }
 
