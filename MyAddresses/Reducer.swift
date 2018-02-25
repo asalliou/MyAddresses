@@ -20,6 +20,12 @@ func appReducer(action: Action, state: AppState?) -> AppState {
             builder.errorMessage = action.message
         } else if let action = action as? UserLocationUnauthorized {
             builder.errorMessage = action.message
+        } else if action is SearchDidBegin {
+            builder.pinVisible = false
+            builder.searchResultVisible = true
+        } else if action is SearchDidEnd {
+            builder.pinVisible = true
+            builder.searchResultVisible = false
         }
     })
     

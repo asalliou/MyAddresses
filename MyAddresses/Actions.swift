@@ -21,3 +21,7 @@ struct UserLocationDidFail: Action {
 struct UserLocationUnauthorized: Action {
     let message : String
 }
+
+struct SearchDidBegin: Action {}
+
+struct SearchDidEnd: Action {}

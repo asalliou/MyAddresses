@@ -34,7 +34,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9FU-cd-edF" userLabel="Search Result Container View">
-                                <rect key="frame" x="16" y="84" width="343" height="574"/>
+                                <rect key="frame" x="16" y="84" width="343" height="575"/>
                                 <connections>
                                     <segue destination="ZXB-V9-Ifk" kind="embed" id="SYi-uT-kvO"/>
                                 </connections>
@@ -51,13 +51,14 @@
                             <constraint firstItem="N06-es-h3R" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="fE2-bE-Vmk"/>
                             <constraint firstItem="9FU-cd-edF" firstAttribute="top" secondItem="N06-es-h3R" secondAttribute="bottom" constant="8" id="nAZ-0H-835"/>
                             <constraint firstItem="03K-Qm-n2j" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" id="oEU-zg-eY5"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9FU-cd-edF" secondAttribute="bottom" constant="9" id="okI-lL-aZP"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="9FU-cd-edF" secondAttribute="bottom" constant="8" id="okI-lL-aZP"/>
                             <constraint firstItem="9FU-cd-edF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="ycK-B0-jxD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="pinView" destination="9Nv-NL-7TL" id="DCK-68-K2U"/>
+                        <outlet property="searchResultBottomLayoutConstraint" destination="okI-lL-aZP" id="kAD-B0-OVG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -101,7 +102,7 @@
             <objects>
                 <viewController id="ZXB-V9-Ifk" customClass="SearchResultViewController" customModule="MyAddresses" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hyp-cI-bFJ">
-                        <rect key="frame" x="0.0" y="0.0" width="343" height="574"/>
+                        <rect key="frame" x="0.0" y="0.0" width="343" height="575"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="FsJ-x2-5R0"/>

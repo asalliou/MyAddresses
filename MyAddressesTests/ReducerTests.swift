@@ -75,4 +75,32 @@ class ReducerTests: XCTestCase {
         XCTAssertFalse(appState.pinVisible)
         XCTAssertEqual(expectedMessage, appState.errorMessage)
     }
+    
+    func testSearchDidBegin() {
+        let action = SearchDidBegin()
+        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
+                                    mapZoomLevel: 2,
+                                    pinVisible: false,
+                                    errorMessage : nil,
+                                    searchResultVisible: false)
+        
+        let appState : AppState = appReducer(action: action, state: initialState)
+        
+        XCTAssertFalse(appState.pinVisible)
+        XCTAssertTrue(appState.searchResultVisible)
+    }
+    
+    func testSearchDidEnd() {
+        let action = SearchDidEnd()
+        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
+                                    mapZoomLevel: 2,
+                                    pinVisible: false,
+                                    errorMessage : nil,
+                                    searchResultVisible: false)
+        
+        let appState : AppState = appReducer(action: action, state: initialState)
+        
+        XCTAssertTrue(appState.pinVisible)
+        XCTAssertFalse(appState.searchResultVisible)
+    }
 }
