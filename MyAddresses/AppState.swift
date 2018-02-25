@@ -15,6 +15,7 @@ struct AppState: StateType {
     let mapZoomLevel: Double
     let pinVisible: Bool
     let errorMessage : String?
+    let searchResultVisible : Bool
 }
 
 class AppStateBuilder {
@@ -22,6 +23,7 @@ class AppStateBuilder {
     var mapZoomLevel: Double
     var pinVisible: Bool
     var errorMessage : String?
+    var searchResultVisible : Bool
     
     typealias BuilderClosure = (AppStateBuilder) -> Void
     
@@ -31,11 +33,13 @@ class AppStateBuilder {
             mapZoomLevel = 15
             pinVisible = false
             errorMessage = nil
+            searchResultVisible = false
         } else {
             mapCenterCoordinate = initialState!.mapCenterCoordinate
             mapZoomLevel = initialState!.mapZoomLevel
             pinVisible = initialState!.pinVisible
             errorMessage = initialState!.errorMessage
+            searchResultVisible = initialState!.searchResultVisible
         }
         
         if buildClosure != nil {
@@ -47,6 +51,7 @@ class AppStateBuilder {
         return AppState(mapCenterCoordinate: mapCenterCoordinate,
                         mapZoomLevel: mapZoomLevel,
                         pinVisible: pinVisible,
-                        errorMessage: errorMessage)
+                        errorMessage: errorMessage,
+                        searchResultVisible: searchResultVisible)
     }
 }

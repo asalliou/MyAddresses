@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  MyAddresses
 //
 //  Created by Antoine SALLIOU on 21/02/2018.
@@ -10,28 +10,15 @@ import UIKit
 import Mapbox
 import ReSwift
 
-class ViewController: UIViewController, StoreSubscriber {
+class MainViewController: UIViewController, StoreSubscriber {
     
-    @IBOutlet weak var pinView: UIImageView!
-    var mapView : MGLMapView?
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mapView = MGLMapView(frame: self.view.bounds)
-        mapView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.insertSubview(mapView!, belowSubview: pinView)
         
         mainStore.subscribe(self)
     }
     
     func newState(state: AppState) {
-        if mapView != nil {
-            mapView!.centerCoordinate = state.mapCenterCoordinate
-            mapView!.zoomLevel = 15
-            pinView.isHidden = !state.pinVisible
-        }
-        
         if state.errorMessage != nil {
             let cancelAction = UIAlertAction(
                 title: "Ok",
@@ -45,7 +32,6 @@ class ViewController: UIViewController, StoreSubscriber {
         } else {
             dismissErrorIfNeeded()
         }
-        return
     }
     
     func dismissErrorIfNeeded(completion: (() -> Swift.Void)? = nil) {

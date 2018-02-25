@@ -34,7 +34,8 @@ class ReducerTests: XCTestCase {
         let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 3, longitude: 4),
                                     mapZoomLevel: 2,
                                     pinVisible: false,
-                                    errorMessage : nil)
+                                    errorMessage : nil,
+                                    searchResultVisible: false)
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
@@ -63,7 +64,8 @@ class ReducerTests: XCTestCase {
         let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
                                     mapZoomLevel: 2,
                                     pinVisible: false,
-                                    errorMessage : nil)
+                                    errorMessage : nil,
+                                    searchResultVisible: false)
         
         let appState : AppState = appReducer(action: action, state: initialState)
         

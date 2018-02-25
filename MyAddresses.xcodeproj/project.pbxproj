@@ -8,12 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		443D015A2045FC3B006B4966 /* UserLocationMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D01592045FC3B006B4966 /* UserLocationMiddleware.swift */; };
+		443D015F2045FC9C006B4966 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D015B2045FC9C006B4966 /* MainViewController.swift */; };
+		443D01602045FC9C006B4966 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D015C2045FC9C006B4966 /* SearchBarViewController.swift */; };
+		443D01612045FC9C006B4966 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D015D2045FC9C006B4966 /* SearchResultViewController.swift */; };
+		443D01622045FC9C006B4966 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D015E2045FC9C006B4966 /* MapViewController.swift */; };
 		446D49D12045FB0500577110 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446D49CE2045FB0500577110 /* AppState.swift */; };
 		446D49D22045FB0500577110 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446D49CF2045FB0500577110 /* Reducer.swift */; };
 		446D49D32045FB0500577110 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446D49D02045FB0500577110 /* Actions.swift */; };
 		446D49D52045FB0E00577110 /* ReducerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446D49D42045FB0E00577110 /* ReducerTests.swift */; };
 		447D362B203DA42F00E82B83 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D362A203DA42F00E82B83 /* AppDelegate.swift */; };
-		447D362D203DA42F00E82B83 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D362C203DA42F00E82B83 /* ViewController.swift */; };
 		447D3630203DA42F00E82B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447D362E203DA42F00E82B83 /* Main.storyboard */; };
 		447D3632203DA42F00E82B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447D3631203DA42F00E82B83 /* Assets.xcassets */; };
 		447D3635203DA42F00E82B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447D3633203DA42F00E82B83 /* LaunchScreen.storyboard */; };
@@ -34,6 +37,10 @@
 
 /* Begin PBXFileReference section */
 		443D01592045FC3B006B4966 /* UserLocationMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserLocationMiddleware.swift; sourceTree = "<group>"; };
+		443D015B2045FC9C006B4966 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		443D015C2045FC9C006B4966 /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
+		443D015D2045FC9C006B4966 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
+		443D015E2045FC9C006B4966 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		44640A06203EF26A0062181A /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
 		446D49CE2045FB0500577110 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		446D49CF2045FB0500577110 /* Reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
@@ -41,7 +48,6 @@
 		446D49D42045FB0E00577110 /* ReducerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReducerTests.swift; sourceTree = "<group>"; };
 		447D3627203DA42F00E82B83 /* MyAddresses.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAddresses.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		447D362A203DA42F00E82B83 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		447D362C203DA42F00E82B83 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		447D362F203DA42F00E82B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		447D3631203DA42F00E82B83 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		447D3634203DA42F00E82B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -110,12 +116,15 @@
 		447D3629203DA42F00E82B83 /* MyAddresses */ = {
 			isa = PBXGroup;
 			children = (
+				443D015B2045FC9C006B4966 /* MainViewController.swift */,
+				443D015E2045FC9C006B4966 /* MapViewController.swift */,
+				443D015C2045FC9C006B4966 /* SearchBarViewController.swift */,
+				443D015D2045FC9C006B4966 /* SearchResultViewController.swift */,
 				443D01592045FC3B006B4966 /* UserLocationMiddleware.swift */,
 				446D49D02045FB0500577110 /* Actions.swift */,
 				446D49CE2045FB0500577110 /* AppState.swift */,
 				446D49CF2045FB0500577110 /* Reducer.swift */,
 				447D362A203DA42F00E82B83 /* AppDelegate.swift */,
-				447D362C203DA42F00E82B83 /* ViewController.swift */,
 				447D362E203DA42F00E82B83 /* Main.storyboard */,
 				447D3631203DA42F00E82B83 /* Assets.xcassets */,
 				447D3633203DA42F00E82B83 /* LaunchScreen.storyboard */,
@@ -377,10 +386,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				443D015F2045FC9C006B4966 /* MainViewController.swift in Sources */,
+				443D01612045FC9C006B4966 /* SearchResultViewController.swift in Sources */,
 				446D49D32045FB0500577110 /* Actions.swift in Sources */,
+				443D01622045FC9C006B4966 /* MapViewController.swift in Sources */,
+				443D01602045FC9C006B4966 /* SearchBarViewController.swift in Sources */,
 				443D015A2045FC3B006B4966 /* UserLocationMiddleware.swift in Sources */,
 				446D49D12045FB0500577110 /* AppState.swift in Sources */,
-				447D362D203DA42F00E82B83 /* ViewController.swift in Sources */,
 				446D49D22045FB0500577110 /* Reducer.swift in Sources */,
 				447D362B203DA42F00E82B83 /* AppDelegate.swift in Sources */,
 			);
