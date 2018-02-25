@@ -12,6 +12,7 @@ import ReSwift
 
 class ViewController: UIViewController, StoreSubscriber {
     
+    @IBOutlet weak var pinView: UIImageView!
     var mapView : MGLMapView?
 
     override func viewDidLoad() {
@@ -19,7 +20,7 @@ class ViewController: UIViewController, StoreSubscriber {
         
         mapView = MGLMapView(frame: self.view.bounds)
         mapView!.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        self.view.addSubview(mapView!)
+        self.view.insertSubview(mapView!, belowSubview: pinView)
         
         mainStore.subscribe(self)
     }
@@ -28,6 +29,7 @@ class ViewController: UIViewController, StoreSubscriber {
         if mapView != nil {
             mapView!.centerCoordinate = state.mapCenterCoordinate
             mapView!.zoomLevel = 15
+            pinView.isHidden = !state.pinVisible
         }
         return
     }

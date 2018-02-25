@@ -14,6 +14,7 @@ func appReducer(action: Action, state: AppState?) -> AppState {
     
         if let action = action as? UserLocationDidUpdate {
             builder.mapCenterCoordinate = action.location.coordinate
+            builder.pinVisible = true
         }
     })
     

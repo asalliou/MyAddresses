@@ -13,21 +13,25 @@ import CoreLocation
 struct AppState: StateType {
     let mapCenterCoordinate: CLLocationCoordinate2D
     let mapZoomLevel: Double
+    let pinVisible: Bool
 }
 
 class AppStateBuilder {
     var mapCenterCoordinate: CLLocationCoordinate2D
     var mapZoomLevel: Double
+    var pinVisible: Bool
     
     typealias BuilderClosure = (AppStateBuilder) -> Void
     
     init(initialState: AppState?, buildClosure: BuilderClosure?) {
         if initialState == nil {
-            self.mapCenterCoordinate = CLLocationCoordinate2D(latitude: 48.856484, longitude: 2.352207)
-            self.mapZoomLevel = 15
+            mapCenterCoordinate = CLLocationCoordinate2D(latitude: 48.856484, longitude: 2.352207)
+            mapZoomLevel = 15
+            pinVisible = false
         } else {
-            self.mapCenterCoordinate = initialState!.mapCenterCoordinate
-            self.mapZoomLevel = initialState!.mapZoomLevel
+            mapCenterCoordinate = initialState!.mapCenterCoordinate
+            mapZoomLevel = initialState!.mapZoomLevel
+            pinVisible = initialState!.pinVisible
         }
         
         if buildClosure != nil {
@@ -36,6 +40,8 @@ class AppStateBuilder {
     }
     
     func build() -> AppState {
-        return AppState(mapCenterCoordinate: self.mapCenterCoordinate, mapZoomLevel: self.mapZoomLevel)
+        return AppState(mapCenterCoordinate: mapCenterCoordinate,
+                        mapZoomLevel: mapZoomLevel,
+                        pinVisible: pinVisible)
     }
 }

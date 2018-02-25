@@ -26,17 +26,20 @@ class ReducerTests: XCTestCase {
         
     }
     
-    func testUpdateMapCenterFromUserLocation() {
+    func testUserLocationDidUpdate() {
         let expectedLat : Double = 1
         let expectedLng : Double = 2
         
         let action = UserLocationDidUpdate(location: CLLocation(latitude: expectedLat, longitude: expectedLng))
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 3, longitude: 4), mapZoomLevel: 2)
+        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 3, longitude: 4),
+                                    mapZoomLevel: 2,
+                                    pinVisible: false)
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
         XCTAssertEqual(expectedLat, appState.mapCenterCoordinate.latitude, accuracy: 0.0001)
         XCTAssertEqual(expectedLng, appState.mapCenterCoordinate.longitude, accuracy: 0.0001)
         XCTAssertEqual(2, appState.mapZoomLevel)
+        XCTAssertTrue(appState.pinVisible)
     }
 }
