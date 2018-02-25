@@ -9,6 +9,7 @@
 import XCTest
 import CoreLocation
 import ReSwift
+
 @testable import MyAddresses
 
 class AnyAction : Action {}

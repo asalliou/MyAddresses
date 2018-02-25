@@ -9,9 +9,12 @@
 import UIKit
 import ReSwift
 
+let userLocationMiddleware = UserLocationMiddleware()
+
 let mainStore = Store<AppState>(
     reducer: appReducer,
-    state: nil
+    state: nil,
+    middleware : [userLocationMiddleware.build()]
 )
 
 @UIApplicationMain
