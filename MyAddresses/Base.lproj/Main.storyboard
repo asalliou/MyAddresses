@@ -59,6 +59,7 @@
                     <connections>
                         <outlet property="pinView" destination="9Nv-NL-7TL" id="DCK-68-K2U"/>
                         <outlet property="searchResultBottomLayoutConstraint" destination="okI-lL-aZP" id="kAD-B0-OVG"/>
+                        <outlet property="searchResultContainerView" destination="9FU-cd-edF" id="pOs-vs-5RD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -12,6 +12,7 @@ import ReSwift
 
 class MainViewController: UIViewController, StoreSubscriber {
     
+    @IBOutlet weak var searchResultContainerView: UIView!
     @IBOutlet weak var searchResultBottomLayoutConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
@@ -34,6 +35,8 @@ class MainViewController: UIViewController, StoreSubscriber {
         } else {
             dismissErrorIfNeeded()
         }
+        
+        self.searchResultContainerView.isUserInteractionEnabled = state.searchResultVisible
     }
     
     func dismissErrorIfNeeded(completion: (() -> Swift.Void)? = nil) {

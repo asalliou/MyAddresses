@@ -20,5 +20,6 @@ class SearchResultViewController: UIViewController, StoreSubscriber {
     
     func newState(state: AppState) {
         self.view.isHidden = !state.searchResultVisible
+        self.view.isUserInteractionEnabled = state.searchResultVisible
     }
 }
