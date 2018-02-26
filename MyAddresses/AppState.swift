@@ -14,12 +14,14 @@ struct AppState: StateType {
     let mapCenterCoordinate: CLLocationCoordinate2D
     let mapZoomLevel: Double
     let pinVisible: Bool
+    let errorMessage : String?
 }
 
 class AppStateBuilder {
     var mapCenterCoordinate: CLLocationCoordinate2D
     var mapZoomLevel: Double
     var pinVisible: Bool
+    var errorMessage : String?
     
     typealias BuilderClosure = (AppStateBuilder) -> Void
     
@@ -28,10 +30,12 @@ class AppStateBuilder {
             mapCenterCoordinate = CLLocationCoordinate2D(latitude: 48.856484, longitude: 2.352207)
             mapZoomLevel = 15
             pinVisible = false
+            errorMessage = nil
         } else {
             mapCenterCoordinate = initialState!.mapCenterCoordinate
             mapZoomLevel = initialState!.mapZoomLevel
             pinVisible = initialState!.pinVisible
+            errorMessage = initialState!.errorMessage
         }
         
         if buildClosure != nil {
@@ -42,6 +46,7 @@ class AppStateBuilder {
     func build() -> AppState {
         return AppState(mapCenterCoordinate: mapCenterCoordinate,
                         mapZoomLevel: mapZoomLevel,
-                        pinVisible: pinVisible)
+                        pinVisible: pinVisible,
+                        errorMessage: errorMessage)
     }
 }

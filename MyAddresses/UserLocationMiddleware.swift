@@ -49,12 +49,19 @@ class UserLocationMiddleware : NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print ("locationManager:didFailWithError:")
+        mainStore.dispatch(UserLocationDidFail(message: "Cannot locate user"))
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        if (status == .authorizedWhenInUse) {
+        switch status {
+        case .authorizedWhenInUse:
             self.coreLocationManager.requestLocation()
+        case .denied:
+            mainStore.dispatch(UserLocationUnauthorized(message: "Location unauthorized"))
+        case .restricted:
+            mainStore.dispatch(UserLocationUnauthorized(message: "Location unauthorized"))
+        default:
+            break
         }
     }
     

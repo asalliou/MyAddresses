@@ -15,6 +15,11 @@ func appReducer(action: Action, state: AppState?) -> AppState {
         if let action = action as? UserLocationDidUpdate {
             builder.mapCenterCoordinate = action.location.coordinate
             builder.pinVisible = true
+            builder.errorMessage = nil
+        } else if let action = action as? UserLocationDidFail {
+            builder.errorMessage = action.message
+        } else if let action = action as? UserLocationUnauthorized {
+            builder.errorMessage = action.message
         }
     })
     

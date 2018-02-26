@@ -33,7 +33,8 @@ class ReducerTests: XCTestCase {
         let action = UserLocationDidUpdate(location: CLLocation(latitude: expectedLat, longitude: expectedLng))
         let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 3, longitude: 4),
                                     mapZoomLevel: 2,
-                                    pinVisible: false)
+                                    pinVisible: false,
+                                    errorMessage : nil)
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
@@ -41,5 +42,35 @@ class ReducerTests: XCTestCase {
         XCTAssertEqual(expectedLng, appState.mapCenterCoordinate.longitude, accuracy: 0.0001)
         XCTAssertEqual(2, appState.mapZoomLevel)
         XCTAssertTrue(appState.pinVisible)
+        XCTAssertNil(appState.errorMessage)
+    }
+    
+    func testUserLocationDidFail() {
+        let expectedMessage = "abc"
+        let action = UserLocationDidFail(message: expectedMessage)
+        
+        verifyLocationError(action: action, expectedMessage: expectedMessage)
+    }
+    
+    func testUserLocationUnauthorized() {
+        let expectedMessage = "abc"
+        let action = UserLocationUnauthorized(message: expectedMessage)
+        
+        verifyLocationError(action: action, expectedMessage: expectedMessage)
+    }
+    
+    func verifyLocationError(action : Action, expectedMessage : String) {
+        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
+                                    mapZoomLevel: 2,
+                                    pinVisible: false,
+                                    errorMessage : nil)
+        
+        let appState : AppState = appReducer(action: action, state: initialState)
+        
+        XCTAssertEqual(1, appState.mapCenterCoordinate.latitude, accuracy: 0.0001)
+        XCTAssertEqual(2, appState.mapCenterCoordinate.longitude, accuracy: 0.0001)
+        XCTAssertEqual(2, appState.mapZoomLevel)
+        XCTAssertFalse(appState.pinVisible)
+        XCTAssertEqual(expectedMessage, appState.errorMessage)
     }
 }

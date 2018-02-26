@@ -13,3 +13,11 @@ import CoreLocation
 struct UserLocationDidUpdate: Action {
     let location : CLLocation
 }
+
+struct UserLocationDidFail: Action {
+    let message : String
+}
+
+struct UserLocationUnauthorized: Action {
+    let message : String
+}

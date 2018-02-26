@@ -31,7 +31,34 @@ class ViewController: UIViewController, StoreSubscriber {
             mapView!.zoomLevel = 15
             pinView.isHidden = !state.pinVisible
         }
+        
+        if state.errorMessage != nil {
+            let cancelAction = UIAlertAction(
+                title: "Ok",
+                style: .cancel)
+            let alert = UIAlertController(title: "Error", message: state.errorMessage!, preferredStyle: .alert)
+            alert.addAction(cancelAction)
+            
+            dismissErrorIfNeeded(completion: {
+                self.present(alert, animated: true, completion: nil)
+            })
+        } else {
+            dismissErrorIfNeeded()
+        }
         return
+    }
+    
+    func dismissErrorIfNeeded(completion: (() -> Swift.Void)? = nil) {
+        
+        if  (self.presentedViewController as? UIAlertController) != nil {
+            self.dismiss(animated: true, completion: {
+                if (completion != nil) {
+                    completion!()
+                }
+            })
+        } else if (completion != nil) {
+            completion!()
+        }
     }
 }
 
