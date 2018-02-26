@@ -29,4 +29,8 @@ class SearchBarViewController: UIViewController, UISearchBarDelegate {
         searchBar.setShowsCancelButton(false, animated: true)
         mainStore.dispatch(SearchDidEnd())
     }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        mainStore.dispatch(SearchTextDidChange(searchText: searchText))
+    }
 }

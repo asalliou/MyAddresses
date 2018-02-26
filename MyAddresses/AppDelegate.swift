@@ -10,11 +10,12 @@ import UIKit
 import ReSwift
 
 let userLocationMiddleware = UserLocationMiddleware()
+let geocoderMiddleware = GeocoderMiddleware()
 
 let mainStore = Store<AppState>(
     reducer: appReducer,
     state: nil,
-    middleware : [userLocationMiddleware.build()]
+    middleware : [userLocationMiddleware.build(), geocoderMiddleware.build()]
 )
 
 @UIApplicationMain

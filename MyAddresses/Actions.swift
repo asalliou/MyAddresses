@@ -25,3 +25,11 @@ struct UserLocationUnauthorized: Action {
 struct SearchDidBegin: Action {}
 
 struct SearchDidEnd: Action {}
+
+struct SearchTextDidChange : Action {
+    let searchText : String
+}
+
+struct SearchDidFoundAddresses : Action {
+    let addresses : [Address]
+}

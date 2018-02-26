@@ -12,6 +12,9 @@
 		443D01602045FC9C006B4966 /* SearchBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D015C2045FC9C006B4966 /* SearchBarViewController.swift */; };
 		443D01612045FC9C006B4966 /* SearchResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D015D2045FC9C006B4966 /* SearchResultViewController.swift */; };
 		443D01622045FC9C006B4966 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D015E2045FC9C006B4966 /* MapViewController.swift */; };
+		443D01642045FD0A006B4966 /* Address.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D01632045FD0A006B4966 /* Address.swift */; };
+		443D01672045FD1A006B4966 /* AppStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D01652045FD1A006B4966 /* AppStateBuilder.swift */; };
+		443D01682045FD1A006B4966 /* GeocoderMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443D01662045FD1A006B4966 /* GeocoderMiddleware.swift */; };
 		446D49D12045FB0500577110 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446D49CE2045FB0500577110 /* AppState.swift */; };
 		446D49D22045FB0500577110 /* Reducer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446D49CF2045FB0500577110 /* Reducer.swift */; };
 		446D49D32045FB0500577110 /* Actions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446D49D02045FB0500577110 /* Actions.swift */; };
@@ -41,6 +44,9 @@
 		443D015C2045FC9C006B4966 /* SearchBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchBarViewController.swift; sourceTree = "<group>"; };
 		443D015D2045FC9C006B4966 /* SearchResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResultViewController.swift; sourceTree = "<group>"; };
 		443D015E2045FC9C006B4966 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		443D01632045FD0A006B4966 /* Address.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Address.swift; sourceTree = "<group>"; };
+		443D01652045FD1A006B4966 /* AppStateBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStateBuilder.swift; sourceTree = "<group>"; };
+		443D01662045FD1A006B4966 /* GeocoderMiddleware.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeocoderMiddleware.swift; sourceTree = "<group>"; };
 		44640A06203EF26A0062181A /* Mapbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mapbox.framework; path = Carthage/Build/iOS/Mapbox.framework; sourceTree = "<group>"; };
 		446D49CE2045FB0500577110 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		446D49CF2045FB0500577110 /* Reducer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reducer.swift; sourceTree = "<group>"; };
@@ -121,9 +127,12 @@
 				443D015C2045FC9C006B4966 /* SearchBarViewController.swift */,
 				443D015D2045FC9C006B4966 /* SearchResultViewController.swift */,
 				443D01592045FC3B006B4966 /* UserLocationMiddleware.swift */,
+				443D01662045FD1A006B4966 /* GeocoderMiddleware.swift */,
 				446D49D02045FB0500577110 /* Actions.swift */,
 				446D49CE2045FB0500577110 /* AppState.swift */,
+				443D01652045FD1A006B4966 /* AppStateBuilder.swift */,
 				446D49CF2045FB0500577110 /* Reducer.swift */,
+				443D01632045FD0A006B4966 /* Address.swift */,
 				447D362A203DA42F00E82B83 /* AppDelegate.swift */,
 				447D362E203DA42F00E82B83 /* Main.storyboard */,
 				447D3631203DA42F00E82B83 /* Assets.xcassets */,
@@ -366,12 +375,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses-frameworks.sh",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework",
 				"${PODS_ROOT}/Mapbox-iOS-SDK/dynamic/Mapbox.framework.dSYM",
+				"${BUILT_PRODUCTS_DIR}/MapboxGeocoder.swift/MapboxGeocoder.framework",
 				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Mapbox.framework",
 				"${DWARF_DSYM_FOLDER_PATH}/Mapbox.framework.dSYM",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MapboxGeocoder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -390,9 +401,12 @@
 				443D01612045FC9C006B4966 /* SearchResultViewController.swift in Sources */,
 				446D49D32045FB0500577110 /* Actions.swift in Sources */,
 				443D01622045FC9C006B4966 /* MapViewController.swift in Sources */,
+				443D01642045FD0A006B4966 /* Address.swift in Sources */,
+				443D01682045FD1A006B4966 /* GeocoderMiddleware.swift in Sources */,
 				443D01602045FC9C006B4966 /* SearchBarViewController.swift in Sources */,
 				443D015A2045FC3B006B4966 /* UserLocationMiddleware.swift in Sources */,
 				446D49D12045FB0500577110 /* AppState.swift in Sources */,
+				443D01672045FD1A006B4966 /* AppStateBuilder.swift in Sources */,
 				446D49D22045FB0500577110 /* Reducer.swift in Sources */,
 				447D362B203DA42F00E82B83 /* AppDelegate.swift in Sources */,
 			);

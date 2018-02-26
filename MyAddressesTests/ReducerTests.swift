@@ -35,7 +35,8 @@ class ReducerTests: XCTestCase {
                                     mapZoomLevel: 2,
                                     pinVisible: false,
                                     errorMessage : nil,
-                                    searchResultVisible: false)
+                                    searchResultVisible: false,
+                                    searchResults : [])
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
@@ -65,7 +66,8 @@ class ReducerTests: XCTestCase {
                                     mapZoomLevel: 2,
                                     pinVisible: false,
                                     errorMessage : nil,
-                                    searchResultVisible: false)
+                                    searchResultVisible: false,
+                                    searchResults : [])
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
@@ -82,7 +84,8 @@ class ReducerTests: XCTestCase {
                                     mapZoomLevel: 2,
                                     pinVisible: false,
                                     errorMessage : nil,
-                                    searchResultVisible: false)
+                                    searchResultVisible: false,
+                                    searchResults : [])
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
@@ -96,7 +99,8 @@ class ReducerTests: XCTestCase {
                                     mapZoomLevel: 2,
                                     pinVisible: false,
                                     errorMessage : nil,
-                                    searchResultVisible: false)
+                                    searchResultVisible: false,
+                                    searchResults : [])
         
         let appState : AppState = appReducer(action: action, state: initialState)
         

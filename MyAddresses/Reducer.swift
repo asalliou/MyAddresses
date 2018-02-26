@@ -26,6 +26,8 @@ func appReducer(action: Action, state: AppState?) -> AppState {
         } else if action is SearchDidEnd {
             builder.pinVisible = true
             builder.searchResultVisible = false
+        } else if let action = action as? SearchDidFoundAddresses {
+            builder.searchResults = action.addresses
         }
     })
     
