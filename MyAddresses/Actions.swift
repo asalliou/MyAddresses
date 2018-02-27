@@ -37,3 +37,12 @@ struct SearchDidFoundAddresses : Action {
 struct SearchAddressDidSelect : Action {
     let address : Address
 }
+
+struct MapDidUpdate : Action {
+    let center: CLLocationCoordinate2D
+    let zoomLevel: Double
+}
+
+struct SearchDidReverseGeocodeAddress : Action {
+    let address : Address
+}

@@ -23,7 +23,6 @@
 		447D3630203DA42F00E82B83 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447D362E203DA42F00E82B83 /* Main.storyboard */; };
 		447D3632203DA42F00E82B83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 447D3631203DA42F00E82B83 /* Assets.xcassets */; };
 		447D3635203DA42F00E82B83 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 447D3633203DA42F00E82B83 /* LaunchScreen.storyboard */; };
-		447D3640203DA43000E82B83 /* MyAddressesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447D363F203DA43000E82B83 /* MyAddressesTests.swift */; };
 		7232FF39429D5F8E18CC4EED /* Pods_MyAddresses.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 62358EB994EE8BC615FC621B /* Pods_MyAddresses.framework */; };
 		B9C5118A88DE4FA0238311D7 /* Pods_MyAddressesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CBC4B1B80C2AAA84E1E7E356 /* Pods_MyAddressesTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,7 +58,6 @@
 		447D3634203DA42F00E82B83 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		447D3636203DA42F00E82B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		447D363B203DA43000E82B83 /* MyAddressesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyAddressesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		447D363F203DA43000E82B83 /* MyAddressesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressesTests.swift; sourceTree = "<group>"; };
 		447D3641203DA43000E82B83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		62358EB994EE8BC615FC621B /* Pods_MyAddresses.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyAddresses.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A21AD5ED032EDCA3E4EFE2F8 /* Pods-MyAddresses.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyAddresses.release.xcconfig"; path = "Pods/Target Support Files/Pods-MyAddresses/Pods-MyAddresses.release.xcconfig"; sourceTree = "<group>"; };
@@ -146,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				446D49D42045FB0E00577110 /* ReducerTests.swift */,
-				447D363F203DA43000E82B83 /* MyAddressesTests.swift */,
 				447D3641203DA43000E82B83 /* Info.plist */,
 			);
 			path = MyAddressesTests;
@@ -417,7 +414,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				446D49D52045FB0E00577110 /* ReducerTests.swift in Sources */,
-				447D3640203DA43000E82B83 /* MyAddressesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,7 +19,9 @@ class SearchResultViewController: UIViewController, StoreSubscriber, UITableView
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainStore.subscribe(self)
+        mainStore.subscribe(self) { subcription in
+            subcription.skipRepeats()
+        }
     }
     
     func newState(state: AppState) {

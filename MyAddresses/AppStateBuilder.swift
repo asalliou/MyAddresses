@@ -12,6 +12,7 @@ import CoreLocation
 class AppStateBuilder {
     var mapCenterCoordinate: CLLocationCoordinate2D
     var mapZoomLevel: Double
+    var mapShouldUpdate : Bool
     var pinVisible: Bool
     var errorMessage : String?
     var searchBarIsEditing : Bool
@@ -25,6 +26,7 @@ class AppStateBuilder {
         if initialState == nil {
             mapCenterCoordinate = CLLocationCoordinate2D(latitude: 48.856484, longitude: 2.352207)
             mapZoomLevel = 15
+            mapShouldUpdate = false
             pinVisible = false
             errorMessage = nil
             searchBarIsEditing = false
@@ -34,6 +36,7 @@ class AppStateBuilder {
         } else {
             mapCenterCoordinate = initialState!.mapCenterCoordinate
             mapZoomLevel = initialState!.mapZoomLevel
+            mapShouldUpdate = initialState!.mapShouldUpdate
             pinVisible = initialState!.pinVisible
             errorMessage = initialState!.errorMessage
             searchBarIsEditing = initialState!.searchBarIsEditing
@@ -50,6 +53,7 @@ class AppStateBuilder {
     func build() -> AppState {
         return AppState(mapCenterCoordinate: mapCenterCoordinate,
                         mapZoomLevel: mapZoomLevel,
+                        mapShouldUpdate: mapShouldUpdate,
                         pinVisible: pinVisible,
                         errorMessage: errorMessage,
                         searchBarIsEditing: searchBarIsEditing,

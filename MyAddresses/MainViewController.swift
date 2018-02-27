@@ -18,7 +18,9 @@ class MainViewController: UIViewController, StoreSubscriber {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        mainStore.subscribe(self)
+        mainStore.subscribe(self) { subcription in
+            subcription.skipRepeats()
+        }
     }
     
     func newState(state: AppState) {
