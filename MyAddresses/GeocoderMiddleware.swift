@@ -24,8 +24,9 @@ class GeocoderMiddleware {
                         self.geocode(query: action.searchText)
                     } else if let action = action as? MapDidUpdate {
                         self.reverseGeocode(coordinate: action.center)
+                    } else if let action = action as? UserLocationDidUpdate {
+                        self.reverseGeocode(coordinate: action.location.coordinate)
                     }
-                    
                     return next(action)
                 }
             }
