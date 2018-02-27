@@ -31,21 +31,13 @@ class ReducerTests: XCTestCase {
         let expectedLng : Double = 2
         
         let action = UserLocationDidUpdate(location: CLLocation(latitude: expectedLat, longitude: expectedLng))
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 3, longitude: 4),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
         XCTAssertEqual(expectedLat, appState.mapCenterCoordinate.latitude, accuracy: 0.0001)
         XCTAssertEqual(expectedLng, appState.mapCenterCoordinate.longitude, accuracy: 0.0001)
-        XCTAssertEqual(2, appState.mapZoomLevel)
+        XCTAssertEqual(15, appState.mapZoomLevel)
         XCTAssertTrue(appState.mapShouldUpdate)
         XCTAssertTrue(appState.pinVisible)
         XCTAssertNil(appState.errorMessage)
@@ -66,36 +58,20 @@ class ReducerTests: XCTestCase {
     }
     
     func verifyLocationError(action : Action, expectedMessage : String) {
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
-        XCTAssertEqual(1, appState.mapCenterCoordinate.latitude, accuracy: 0.0001)
-        XCTAssertEqual(2, appState.mapCenterCoordinate.longitude, accuracy: 0.0001)
-        XCTAssertEqual(2, appState.mapZoomLevel)
+        XCTAssertEqual(48.856484, appState.mapCenterCoordinate.latitude, accuracy: 0.0001)
+        XCTAssertEqual(2.352207, appState.mapCenterCoordinate.longitude, accuracy: 0.0001)
+        XCTAssertEqual(15, appState.mapZoomLevel)
         XCTAssertFalse(appState.pinVisible)
         XCTAssertEqual(expectedMessage, appState.errorMessage)
     }
     
     func testSearchDidBegin() {
         let action = SearchDidBegin()
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
@@ -106,15 +82,7 @@ class ReducerTests: XCTestCase {
     
     func testSearchDidEnd() {
         let action = SearchDidEnd()
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
@@ -125,15 +93,7 @@ class ReducerTests: XCTestCase {
     
     func testSearchTextDidChange() {
         let action = SearchTextDidChange(searchText: "test")
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         
         let appState : AppState = appReducer(action: action, state: initialState)
         XCTAssertEqual("test", appState.searchBarContent)
@@ -142,15 +102,7 @@ class ReducerTests: XCTestCase {
     func testSearchDidFoundAddresses() {
         let addresses = [Address(description: "azerty", coordinate: CLLocationCoordinate2D(latitude: 3, longitude: 2))]
         let action = SearchDidFoundAddresses(addresses: [Address(description: "azerty", coordinate: CLLocationCoordinate2D(latitude: 3, longitude: 2))])
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         
         let appState : AppState = appReducer(action: action, state: initialState)
         
@@ -161,15 +113,7 @@ class ReducerTests: XCTestCase {
         let coordinate = CLLocationCoordinate2D(latitude: 3, longitude: 2)
         let address = Address(description: "azerty", coordinate: coordinate)
         let action = SearchAddressDidSelect(address: address)
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         
         let appState : AppState = appReducer(action: action, state: initialState)
         XCTAssertEqual(coordinate.latitude, appState.mapCenterCoordinate.latitude)
@@ -183,15 +127,7 @@ class ReducerTests: XCTestCase {
     func testMapCenterDidUpdate() {
         let coordinate = CLLocationCoordinate2D(latitude: 3, longitude: 2)
         let action = MapDidUpdate(center: coordinate, zoomLevel: 3)
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         let appState : AppState = appReducer(action: action, state: initialState)
         
         XCTAssertEqual(coordinate.latitude, appState.mapCenterCoordinate.latitude)
@@ -205,15 +141,7 @@ class ReducerTests: XCTestCase {
         let address = Address(description: "azerty", coordinate: coordinate)
         let action = SearchDidReverseGeocodeAddress(address: address)
         
-        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
-                                    mapZoomLevel: 2,
-                                    mapShouldUpdate: false,
-                                    pinVisible: false,
-                                    errorMessage : nil,
-                                    searchBarIsEditing: false,
-                                    searchBarContent: "",
-                                    searchResultVisible: false,
-                                    searchResults : [])
+        let initialState = AppStateBuilder(initialState: nil, buildClosure: nil).build()
         let appState : AppState = appReducer(action: action, state: initialState)
         
         XCTAssertFalse(appState.mapShouldUpdate)
