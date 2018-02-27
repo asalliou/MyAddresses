@@ -39,6 +39,7 @@ class SearchResultViewController: UIViewController, StoreSubscriber, UITableView
         
         if (cell == nil) {
             cell = UITableViewCell(style: .default, reuseIdentifier: cellIdentifier)
+            cell?.textLabel?.numberOfLines = 2
         }
         
         cell!.textLabel?.text = suggestedAddresses[indexPath.row].description
