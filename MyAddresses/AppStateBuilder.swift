@@ -14,6 +14,8 @@ class AppStateBuilder {
     var mapZoomLevel: Double
     var pinVisible: Bool
     var errorMessage : String?
+    var searchBarIsEditing : Bool
+    var searchBarContent : String
     var searchResultVisible : Bool
     var searchResults : [Address]
     
@@ -25,6 +27,8 @@ class AppStateBuilder {
             mapZoomLevel = 15
             pinVisible = false
             errorMessage = nil
+            searchBarIsEditing = false
+            searchBarContent = ""
             searchResultVisible = false
             searchResults = []
         } else {
@@ -32,6 +36,8 @@ class AppStateBuilder {
             mapZoomLevel = initialState!.mapZoomLevel
             pinVisible = initialState!.pinVisible
             errorMessage = initialState!.errorMessage
+            searchBarIsEditing = initialState!.searchBarIsEditing
+            searchBarContent = initialState!.searchBarContent
             searchResultVisible = initialState!.searchResultVisible
             searchResults = initialState!.searchResults
         }
@@ -46,6 +52,8 @@ class AppStateBuilder {
                         mapZoomLevel: mapZoomLevel,
                         pinVisible: pinVisible,
                         errorMessage: errorMessage,
+                        searchBarIsEditing: searchBarIsEditing,
+                        searchBarContent: searchBarContent,
                         searchResultVisible: searchResultVisible,
                         searchResults: searchResults)
     }

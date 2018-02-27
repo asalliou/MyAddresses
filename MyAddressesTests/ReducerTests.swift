@@ -35,6 +35,8 @@ class ReducerTests: XCTestCase {
                                     mapZoomLevel: 2,
                                     pinVisible: false,
                                     errorMessage : nil,
+                                    searchBarIsEditing: false,
+                                    searchBarContent: "",
                                     searchResultVisible: false,
                                     searchResults : [])
         
@@ -66,6 +68,8 @@ class ReducerTests: XCTestCase {
                                     mapZoomLevel: 2,
                                     pinVisible: false,
                                     errorMessage : nil,
+                                    searchBarIsEditing: false,
+                                    searchBarContent: "",
                                     searchResultVisible: false,
                                     searchResults : [])
         
@@ -84,6 +88,8 @@ class ReducerTests: XCTestCase {
                                     mapZoomLevel: 2,
                                     pinVisible: false,
                                     errorMessage : nil,
+                                    searchBarIsEditing: false,
+                                    searchBarContent: "",
                                     searchResultVisible: false,
                                     searchResults : [])
         
@@ -91,6 +97,7 @@ class ReducerTests: XCTestCase {
         
         XCTAssertFalse(appState.pinVisible)
         XCTAssertTrue(appState.searchResultVisible)
+        XCTAssertTrue(appState.searchBarIsEditing)
     }
     
     func testSearchDidEnd() {
@@ -99,6 +106,8 @@ class ReducerTests: XCTestCase {
                                     mapZoomLevel: 2,
                                     pinVisible: false,
                                     errorMessage : nil,
+                                    searchBarIsEditing: false,
+                                    searchBarContent: "",
                                     searchResultVisible: false,
                                     searchResults : [])
         
@@ -106,5 +115,59 @@ class ReducerTests: XCTestCase {
         
         XCTAssertTrue(appState.pinVisible)
         XCTAssertFalse(appState.searchResultVisible)
+        XCTAssertFalse(appState.searchBarIsEditing)
+    }
+    
+    func testSearchTextDidChange() {
+        let action = SearchTextDidChange(searchText: "test")
+        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
+                                    mapZoomLevel: 2,
+                                    pinVisible: false,
+                                    errorMessage : nil,
+                                    searchBarIsEditing: false,
+                                    searchBarContent: "",
+                                    searchResultVisible: false,
+                                    searchResults : [])
+        
+        let appState : AppState = appReducer(action: action, state: initialState)
+        XCTAssertEqual("test", appState.searchBarContent)
+    }
+    
+    func testSearchDidFoundAddresses() {
+        let addresses = [Address(description: "azerty", coordinate: CLLocationCoordinate2D(latitude: 3, longitude: 2))]
+        let action = SearchDidFoundAddresses(addresses: [Address(description: "azerty", coordinate: CLLocationCoordinate2D(latitude: 3, longitude: 2))])
+        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
+                                    mapZoomLevel: 2,
+                                    pinVisible: false,
+                                    errorMessage : nil,
+                                    searchBarIsEditing: false,
+                                    searchBarContent: "",
+                                    searchResultVisible: false,
+                                    searchResults : [])
+        
+        let appState : AppState = appReducer(action: action, state: initialState)
+        
+        XCTAssertEqual(addresses, appState.searchResults)
+    }
+    
+    func testSearchAddressDidSelect() {
+        let coordinate = CLLocationCoordinate2D(latitude: 3, longitude: 2)
+        let address = Address(description: "azerty", coordinate: coordinate)
+        let action = SearchAddressDidSelect(address: address)
+        let initialState = AppState(mapCenterCoordinate: CLLocationCoordinate2D(latitude: 1, longitude: 2),
+                                    mapZoomLevel: 2,
+                                    pinVisible: false,
+                                    errorMessage : nil,
+                                    searchBarIsEditing: false,
+                                    searchBarContent: "",
+                                    searchResultVisible: false,
+                                    searchResults : [])
+        
+        let appState : AppState = appReducer(action: action, state: initialState)
+        XCTAssertEqual(coordinate.latitude, appState.mapCenterCoordinate.latitude)
+        XCTAssertFalse(appState.searchResultVisible)
+        XCTAssertTrue(appState.pinVisible)
+        XCTAssertFalse(appState.searchBarIsEditing)
+        XCTAssertEqual("azerty", appState.searchBarContent)
     }
 }

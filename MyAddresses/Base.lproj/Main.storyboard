@@ -93,6 +93,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Lz6-b2-LLu"/>
                     </view>
+                    <connections>
+                        <outlet property="searchBarView" destination="uGB-Cl-D1G" id="CI4-18-bkT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OUY-hG-dcH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

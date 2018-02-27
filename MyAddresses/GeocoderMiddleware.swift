@@ -36,7 +36,10 @@ class GeocoderMiddleware {
                             }
                             var searchResults : [Address] = []
                             for placemark in placemarks! {
-                                searchResults.append(Address(description: placemark.qualifiedName ?? ""))
+                                if placemark.qualifiedName != nil && placemark.location != nil {
+                                    let address = Address(description: placemark.qualifiedName!, coordinate: placemark.location!.coordinate)
+                                    searchResults.append(address)
+                                }
                             }
                             
                             mainStore.dispatch(SearchDidFoundAddresses(addresses: searchResults))

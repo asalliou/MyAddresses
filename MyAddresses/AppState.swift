@@ -15,6 +15,8 @@ struct AppState: StateType {
     let mapZoomLevel: Double
     let pinVisible: Bool
     let errorMessage : String?
+    let searchBarIsEditing : Bool
+    let searchBarContent : String
     let searchResultVisible : Bool
     let searchResults : [Address]
 }

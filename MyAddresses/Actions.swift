@@ -33,3 +33,7 @@ struct SearchTextDidChange : Action {
 struct SearchDidFoundAddresses : Action {
     let addresses : [Address]
 }
+
+struct SearchAddressDidSelect : Action {
+    let address : Address
+}

@@ -16,6 +16,20 @@ class SearchResultViewController: UIViewController, StoreSubscriber, UITableView
     var suggestedAddresses : [Address] = []
     let cellIdentifier = "addressCell"
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        mainStore.subscribe(self)
+    }
+    
+    func newState(state: AppState) {
+        self.view.isHidden = !state.searchResultVisible
+        self.view.isUserInteractionEnabled = state.searchResultVisible
+        
+        self.suggestedAddresses = state.searchResults
+        self.tableView.reloadData()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return suggestedAddresses.count
     }
@@ -31,18 +45,7 @@ class SearchResultViewController: UIViewController, StoreSubscriber, UITableView
         return cell!
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        mainStore.subscribe(self)
-    }
-    
-    func newState(state: AppState) {
-        self.view.isHidden = !state.searchResultVisible
-        self.view.isUserInteractionEnabled = state.searchResultVisible
-        
-        self.suggestedAddresses = state.searchResults
-        self.tableView.reloadData()
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        mainStore.dispatch(SearchAddressDidSelect(address: suggestedAddresses[indexPath.row]))
     }
 }

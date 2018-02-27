@@ -23,11 +23,21 @@ func appReducer(action: Action, state: AppState?) -> AppState {
         } else if action is SearchDidBegin {
             builder.pinVisible = false
             builder.searchResultVisible = true
+            builder.searchBarIsEditing = true
         } else if action is SearchDidEnd {
             builder.pinVisible = true
             builder.searchResultVisible = false
+            builder.searchBarIsEditing = false
+        } else if let action = action as? SearchTextDidChange {
+            builder.searchBarContent = action.searchText
         } else if let action = action as? SearchDidFoundAddresses {
             builder.searchResults = action.addresses
+        } else if let action = action as? SearchAddressDidSelect {
+            builder.mapCenterCoordinate = action.address.coordinate
+            builder.searchResultVisible = false
+            builder.pinVisible = true
+            builder.searchBarIsEditing = false
+            builder.searchBarContent = action.address.description
         }
     })
     
