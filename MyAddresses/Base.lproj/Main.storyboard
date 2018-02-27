@@ -144,12 +144,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pin" translatesAutoresizingMaskIntoConstraints="NO" id="9Nv-NL-7TL">
-                                <rect key="frame" x="162" y="293" width="50" height="80"/>
+                                <rect key="frame" x="162" y="253.5" width="50" height="80"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="9Nv-NL-7TL" firstAttribute="centerY" secondItem="EEm-mg-TTp" secondAttribute="centerY" id="NJK-xH-aOa"/>
+                            <constraint firstItem="9Nv-NL-7TL" firstAttribute="centerY" secondItem="EEm-mg-TTp" secondAttribute="centerY" constant="-40" id="NJK-xH-aOa"/>
                             <constraint firstItem="9Nv-NL-7TL" firstAttribute="centerX" secondItem="EEm-mg-TTp" secondAttribute="centerX" id="OWz-CX-F67"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="XF1-02-c5K"/>
